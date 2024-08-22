@@ -14,7 +14,7 @@ pipeline {
                     // #to the repo
                     dir('Terraform-for-cluster') {
                         sh '''
-                            . ./terraform-cluster-setup.sh
+                            . terraform-cluster-setup.sh
                         '''
                     }
                 }
