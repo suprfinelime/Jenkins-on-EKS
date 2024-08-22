@@ -15,6 +15,7 @@ pipeline {
                     dir('Terraform-for-cluster') {
                         sh "terraform init"
                         sh "terraform apply -auto-approve"
+                        sh "export CLUSTER_NAME=$(terraform output -raw cluster_name)"
                     }
                 }
             }
@@ -25,7 +26,7 @@ pipeline {
                     // #Give the location of kubernetes scripts directory relative 
                     // #to the repo
                     dir('kubernetes') {
-                        sh "aws eks update-kubeconfig --name myapp-eks-cluster"
+                        sh "aws eks update-kubeconfig --name $CLUSTER_NAME"
                         sh "kubectl apply -f deployment.yaml"
                         sh "kubectl apply -f service.yaml"
                     }
