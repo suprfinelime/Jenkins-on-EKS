@@ -12,7 +12,7 @@ pipeline {
                 script {
                     // #Give the location of terraform scripts directory relative 
                     // #to the repo
-                    dir('terraform-for-cluster') {
+                    dir('Terraform-for-cluster') {
                         sh "terraform init"
                         sh "terraform apply -auto-approve"
                     }
