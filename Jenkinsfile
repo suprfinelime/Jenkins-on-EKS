@@ -14,7 +14,7 @@ pipeline {
                     // #to the repo
                     dir('Terraform-for-cluster') {
                         sh '''
-                            . terraform-cluster-setup.sh
+                            . /var/lib/jenkins/workspace/Test-EKS-Pipeline/Terraform-for-cluster/terraform-cluster-setup.sh
                         '''
                     }
                 }
