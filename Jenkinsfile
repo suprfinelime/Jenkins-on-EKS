@@ -13,9 +13,7 @@ pipeline {
                     // #Give the location of terraform scripts directory relative 
                     // #to the repo
                     dir('Terraform-for-cluster') {
-                        sh '''
-                            . ./terraform-cluster-setup.sh
-                        '''
+                        sh ". /var/lib/jenkins/workspace/Test-EKS-Pipeline/Terraform-for-cluster/terraform-cluster-setup.sh"
                     }
                 }
             }
