@@ -12,7 +12,7 @@ pipeline {
                 script {
                     // #Give the location of terraform scripts directory relative 
                     // #to the repo
-                    dir('Jenkins-on-EKS/terraform-for-cluster') {
+                    dir('terraform-for-cluster') {
                         sh "terraform init"
                         sh "terraform apply -auto-approve"
                     }
@@ -24,7 +24,7 @@ pipeline {
                 script {
                     // #Give the location of kubernetes scripts directory relative 
                     // #to the repo
-                    dir('Jenkins-on-EKS/kubernetes') {
+                    dir('kubernetes') {
                         sh "aws eks update-kubeconfig --name myapp-eks-cluster"
                         sh "kubectl apply -f deployment.yaml"
                         sh "kubectl apply -f service.yaml"
