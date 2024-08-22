@@ -13,9 +13,9 @@ pipeline {
                     // #Give the location of terraform scripts directory relative 
                     // #to the repo
                     dir('Terraform-for-cluster') {
-                        sh "terraform init"
-                        sh "terraform apply -auto-approve"
-                        sh "export CLUSTER_NAME=$(terraform output -raw cluster_name)"
+                        sh '''
+                            . ./terraform-cluster-setup.sh
+                        '''
                     }
                 }
             }
