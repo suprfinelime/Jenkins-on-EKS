@@ -26,8 +26,10 @@ pipeline {
                     // #to the repo
                     dir('kubernetes') {
                         sh "aws eks update-kubeconfig --name myjenkins-server-eks-cluster"
-                        sh "kubectl apply -f deployment.yaml"
-                        sh "kubectl apply -f service.yaml"
+                        sh "kubectl create namespace nginx-app"
+                        sh "helm install nginx-test-v1 ngnix -n nginx-app"
+                        // sh "kubectl apply -f deployment.yaml"
+                        // sh "kubectl apply -f service.yaml"
                     }
                 }
             }
