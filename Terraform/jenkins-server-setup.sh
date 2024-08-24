@@ -26,6 +26,6 @@ sudo chmod +x ./kubectl
 sudo mkdir -p $HOME/bin && sudo cp ./kubectl $HOME/bin/kubectl && export PATH=$PATH:$HOME/bin
 
 # install helm
-curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
+curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 #change to v3.8.2
 chmod 700 get_helm.sh
 ./get_helm.sh

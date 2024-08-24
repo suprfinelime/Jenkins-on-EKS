@@ -25,7 +25,7 @@ pipeline {
                     // #Give the location of kubernetes scripts directory relative 
                     // #to the repo
                     dir('kubernetes') {
-                        sh "aws eks update-kubeconfig --name myjenkins-server-eks-cluster"
+                        sh "aws eks update-kubeconfig --region us-west-2 --name myjenkins-server-eks-cluster"
                         // sh "kubectl create namespace nginx-app"
                         sh "helm install nginx-test-v1 /var/lib/jenkins/workspace/Test-EKS-Pipeline/kubernetes/nginx -n nginx-app"
                         // sh "kubectl apply -f deployment.yaml"
